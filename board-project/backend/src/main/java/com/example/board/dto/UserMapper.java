@@ -12,7 +12,7 @@ public interface UserMapper {
 
     @Mapping(target = "postCount", expression = "java((long) user.getPosts().size())")
     @Mapping(target = "commentCount", expression = "java((long) user.getComments().size())")
-    @Mapping(target = "likesReceived", expression = "java((long) user.getLikes().size())")
+    @Mapping(target = "likesReceived", expression = "java(user.getPosts().stream().mapToLong(post -> post.getLikeCount()).sum())")
     UserResponse toResponse(User user);
 
     @Mapping(target = "id", ignore = true)

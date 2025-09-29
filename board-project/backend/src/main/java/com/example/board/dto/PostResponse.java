@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Builder
@@ -26,6 +25,5 @@ public class PostResponse {
     
     private UserResponse author;
     private CategoryResponse category;
-    private List<CommentResponse> comments;
     private Boolean isLikedByCurrentUser;
 }

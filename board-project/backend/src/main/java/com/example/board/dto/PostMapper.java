@@ -5,13 +5,12 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring", uses = {UserMapper.class, CommentMapper.class})
+@Mapper(componentModel = "spring", uses = {UserMapper.class, CategoryMapper.class})
 public interface PostMapper {
 
     PostMapper INSTANCE = Mappers.getMapper(PostMapper.class);
 
     @Mapping(target = "isLikedByCurrentUser", ignore = true)
-    @Mapping(target = "category", ignore = true)
     PostResponse toResponse(Post post);
 
     @Mapping(target = "authorNickname", source = "author.nickname")
